@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Process of eastablishing the mongodb connection and database
-mongoose.connect("mongodb+srv://PankajSingh:Pankaj%401003@cluster0.8o0wu.mongodb.net/todolist", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://PankajSingh:Pankaj%401003@cluster0.8o0wu.mongodb.net/todolist?ssl=true", {useNewUrlParser: true});
 const itemSchema = new mongoose.Schema( {       // Creating of Schema
     itemName: String
 });
