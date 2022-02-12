@@ -122,4 +122,10 @@ app.post("/remove", (req, res) => {
     }
 
 })
-app.listen(3000, () => console.log("Listening at port number: 3000"));
+
+let port = process.env.PORT;
+if (port == "" || port == null) {
+    port = 3000;
+}
+
+app.listen(port, () => console.log("Server has started file system"));
