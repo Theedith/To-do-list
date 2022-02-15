@@ -4,7 +4,6 @@ const express = require("express");
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose");
 const _ = require("lodash");
-const { redirect } = require("express/lib/response");
 
 // Creating the express object using the app and setting it up
 const app = express();
@@ -13,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 // Process of eastablishing the mongodb connection and database
-mongoose.connect("mongodb+srv://PankajSingh:Pankaj%401003@cluster0.8o0wu.mongodb.net/todolist?ssl=true", {useNewUrlParser: true});
+
 const itemSchema = new mongoose.Schema( {       // Creating of Schema
     itemName: String
 });
@@ -128,4 +127,10 @@ if (port == "" || port == null) {
     port = 3000;
 }
 
-app.listen(port, () => console.log("Server has started file system"));
+mongoose.connect("mongodb+srv://PankajSingh:Pankaj%401003@cluster0.8o0wu.mongodb.net/todolist?retryWrites=true&w=majority", {useNewUrlParser: true}).then(() => {
+    app.listen(port, () => console.log("Server has started file system"));
+}).catch((error) => {
+    console.log(error);
+});
+
+// mongodb+srv://PankajSingh:<password>@cluster0.8o0wu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
