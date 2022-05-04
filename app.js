@@ -132,5 +132,3 @@ mongoose.connect("mongodb+srv://PankajSingh:Pankaj%401003@cluster0.8o0wu.mongodb
 }).catch((error) => {
     console.log(error);
 });
-
-// mongodb+srv://PankajSingh:<password>@cluster0.8o0wu.mongodb.net/myFirstDatabase?retryWrites=true&w=majori
